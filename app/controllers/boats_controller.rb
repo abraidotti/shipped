@@ -9,6 +9,22 @@ class BoatsController < ApplicationController
   end
 
   def edit
+    @boat = Boat.find(params[:id])
+  end
+
+  def update
+    @boat = Boat.find(params[:id])
+    if @boat.update(boat_params)
+      redirect_to boats_path
+    else
+      redirect_to edit_boat_path, notice: "An error occured while updating the boat"
+    end
+  end
+
+  def destroy
+    @boat = Boat.find(params[:id])
+    @boat.destroy
+    redirect_to boats_path
   end
 
   def show

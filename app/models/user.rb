@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  has_many :boats
+  has_many :boats, dependent: :destroy
   has_many :jobs, through: :boats
-  
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
