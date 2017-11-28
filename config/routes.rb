@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'jobs/new'
+
+  get 'jobs/edit'
+
+  get 'jobs/index'
+
+  get 'jobs/show'
+
   devise_for :users
   root to: "boats#index"
   
