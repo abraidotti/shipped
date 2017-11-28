@@ -1,2 +1,9 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
+<h1>Jobs details</h1>
+<h3><%= @job.name %></h3>
+<p>Description: <%= @job.description %></p>
+<p>Origin: <%= @job.origin %></p>
+<p>Destination: <%= @job.destination %></p>
+<p>Cost: <%= @job.cost %></p>
+<p>Containers needed: <%= @job.containers_needed %></p>
+
+<%= link_to "Assign boats", '/' %>
