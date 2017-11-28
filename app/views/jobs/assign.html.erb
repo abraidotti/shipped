@@ -1,0 +1,5 @@
+<p>Assign boats</p>
+
+<%= form_for @job do |f| %>
+<%= f.collection_select(:job, :boat_id, current_user.boats.all, :id, :name) %>
+<% end %>

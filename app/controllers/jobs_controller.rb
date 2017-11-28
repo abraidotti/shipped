@@ -24,6 +24,9 @@ class JobsController < ApplicationController
     end
   end
 
+  def assign
+  end
+
   private
 
   def job_params
