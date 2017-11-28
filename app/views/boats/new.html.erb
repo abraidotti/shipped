@@ -1,2 +1,14 @@
-<h1>Boats#new</h1>
-<p>Find me in app/views/boats/new.html.erb</p>
+<h1>New boat</h1>
+
+<%= form_for @boat do |f| %>
+<%= f.label "Name: " %>
+<%= f.text_field :name %>
+<br>
+<%= f.label "Containers: " %>
+<%= f.number_field :container_amount, in: 1..1000000, step: 1 %>
+<br>
+<%= f.label "Location: " %>
+<%= f.select :location, $locations %>
+<br>
+<%= f.submit %>
+<% end %>
