@@ -6,6 +6,7 @@ class JobsController < ApplicationController
   end
 
   def edit
+    @job = Job.find(params[:id])
   end
 
   def index
@@ -27,11 +28,16 @@ class JobsController < ApplicationController
 
   def update
     @job = Job.find(params[:id])
-    if job_boat_params.permitted?
+    if job_boat_params[:boat_ids]
       @job.boats << Boat.find(job_boat_params[:boat_ids])
       @job.save
       redirect_to job_path(@job)
     else
+      if @job.update(job_params)
+        redirect_to job_path(@job)
+      else
+        redirect_to edit_job_path(@job), notice: "An error occured while updating the job"
+      end
     end
   end
 
@@ -47,6 +53,11 @@ class JobsController < ApplicationController
    redirect_to job_path(@job)
   end
 
+  def destroy
+    @job = Job.find(params[:id])
+    @job.destroy
+    redirect_to root_path
+  end
 
   private
   def job_boat_params
