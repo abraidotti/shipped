@@ -1,3 +1,4 @@
+require 'pry'
 class JobsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   def new
@@ -36,12 +37,14 @@ class JobsController < ApplicationController
 
   def remove
   @job = Job.find(params[:id])
-  @job.boats.each do |boat,i|
-     if boat.id == :boat_id
-       @job.boats.delete_at(i)
+  for i in 0...@job.boats.length do
+     if @job.boats[i].id == params[:boatid].to_i
+       @job.boats.delete(@job.boats[i])
+       @job.save
        break
      end
    end
+   redirect_to job_path(@job)
   end
 
 
