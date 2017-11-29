@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20171128193029) do
   create_table "boats_jobs", id: false, force: :cascade do |t|
     t.integer "boat_id", null: false
     t.integer "job_id", null: false
+    t.index ["boat_id", "job_id"], name: "index_boats_jobs_on_boat_id_and_job_id"
+    t.index ["job_id", "boat_id"], name: "index_boats_jobs_on_job_id_and_boat_id"
   end
 
   create_table "jobs", force: :cascade do |t|

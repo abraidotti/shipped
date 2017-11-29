@@ -5,5 +5,16 @@
 <p>Destination: <%= @job.destination %></p>
 <p>Cost: <%= @job.cost %></p>
 <p>Containers needed: <%= @job.containers_needed %></p>
+<h4>Assigned boats:</h4>
+<ul>
+  <% @job.boats.each do |boat| %>
+    <li>
+      <a href="/boats/<%=boat.id%>"><%=boat.name%></a>
+    </li>
+  <% end %>
 
-<%= link_to "Assign boats", '/' %>
+</ul>
+<%= form_with(model: @job, local: true) do |f| %>
+<%= f.select :boat_ids, options_from_collection_for_select(Boat.all, 'id', 'name') %>
+<%= f.submit "Assign"%>
+<% end %>
