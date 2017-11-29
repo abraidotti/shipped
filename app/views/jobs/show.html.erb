@@ -12,6 +12,7 @@
     <% total = total + boat.container_amount %>
     <li>
       <a href="/boats/<%=boat.id%>"><%=boat.name%></a>
+      <%= link_to 'remove', "/jobs/#{@job.id}?boatid=#{boat.id}", method: :post %>
     </li>
   <% end %>
 

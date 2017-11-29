@@ -34,6 +34,17 @@ class JobsController < ApplicationController
     end
   end
 
+  def remove
+  @job = Job.find(params[:id])
+  @job.boats.each do |boat,i|
+     if boat.id == :boat_id
+       @job.boats.delete_at(i)
+       break
+     end
+   end
+  end
+
+
   private
   def job_boat_params
     params.require(:job).permit(:boat_ids)
