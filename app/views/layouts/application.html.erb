@@ -9,6 +9,8 @@
   </head>
 
   <body>
+
+    <%= render 'shared/navigation' %>
     <header>
       <%= link_to "Home", root_path %>
       <% if !user_signed_in? %>
