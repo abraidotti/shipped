@@ -2,6 +2,7 @@
 <h3><%= @boat.name %></h3>
 <p><%= @boat.container_amount %></p>
 <p><%= @boat.location %></p>
+<div><%= image_tag @boat.avatar.url(:medium) %>
 
 <%= link_to "Delete", boat_path, method: :delete %>
 <%= link_to "Edit", edit_boat_path %>

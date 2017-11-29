@@ -10,5 +10,8 @@
 <%= f.label "Location: " %>
 <%= f.select :location, $locations %>
 <br>
+<%= f.label "Image: " %>
+<%= f.file_field :avatar %>
+<br>
 <%= f.submit %>
 <% end %>
