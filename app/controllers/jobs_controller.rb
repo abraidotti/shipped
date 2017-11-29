@@ -24,10 +24,20 @@ class JobsController < ApplicationController
     end
   end
 
-  def assign
+  def update
+    @job = Job.find(params[:id])
+    if job_boat_params.permitted?
+      @job.boats << Boat.find(job_boat_params[:boat_ids])
+      @job.save
+      redirect_to job_path(@job)
+    else
+    end
   end
 
   private
+  def job_boat_params
+    params.require(:job).permit(:boat_ids)
+  end
 
   def job_params
     params.require(:job).permit(:name, :description, :origin, :destination, :cost, :containers_needed)
