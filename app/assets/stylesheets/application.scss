@@ -8429,3 +8429,17 @@ a {
 
 
 //Sandro scss
+article {
+  color: lightsalmon;
+  width: 40vw;
+  border-radius: 5px;
+  background-color: RGBA(52, 58, 64, .5);
+  margin: 0 auto;
+  h1 {
+    text-align: center;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
