@@ -22,7 +22,8 @@ class JobsController < ApplicationController
     if @job.save
       redirect_to root_path
     else
-      redirect_to new_job_path, notice: "An error occured while creating the new job"
+      #binding.pry
+      redirect_to new_job_path, notice: @job.errors.messages[:origin][0]
     end
   end
 
