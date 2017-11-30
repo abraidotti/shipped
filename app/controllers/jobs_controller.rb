@@ -22,7 +22,6 @@ class JobsController < ApplicationController
     if @job.save
       redirect_to root_path
     else
-      #binding.pry
       redirect_to new_job_path, notice: @job.errors.full_messages.last
     end
   end

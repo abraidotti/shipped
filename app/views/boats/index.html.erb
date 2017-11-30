@@ -1,6 +1,6 @@
 <h1>My boats</h1>
 <br>
-<%= link_to "New boat", new_boat_path, class: 'btn btn-primary' %>
+
 <ul>
   <% @boats.each do |boat| %>
   <li>
@@ -8,3 +8,5 @@
   </li>
   <% end %>
 </ul>
+
+<%= link_to "New boat", new_boat_path, class: 'btn btn-primary' %>
