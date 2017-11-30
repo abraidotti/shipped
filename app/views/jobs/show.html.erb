@@ -5,5 +5,25 @@
 <p>Destination: <%= @job.destination %></p>
 <p>Cost: <%= @job.cost %></p>
 <p>Containers needed: <%= @job.containers_needed %></p>
+<h4>Assigned boats:</h4>
+<ul>
+  <% total = 0 %>
+  <% @job.boats.each do |boat| %>
+    <% total = total + boat.container_amount %>
+    <li>
+      <a href="/boats/<%=boat.id%>"><%=boat.name%></a>
+      <%= link_to 'remove', "/jobs/#{@job.id}?boatid=#{boat.id}", method: :post %>
+    </li>
+  <% end %>
 
-<%= link_to "Assign boats", '/' %>
+</ul>
+<% if total < @job.containers_needed %>
+  <p>More needed containers: <%=@job.containers_needed - total %></p>
+  <%= form_with(model: @job, local: true) do |f| %>
+  <%= f.select :boat_ids, options_from_collection_for_select(Boat.all, 'id', 'name') %>
+  <%= f.submit "Assign"%>
+  <% end %>
+<% end %>
+<br>
+<%= link_to "Edit", edit_job_path(@job) %>
+<%= link_to "Delete", job_path(@job), method: :delete %>

@@ -1,6 +1,8 @@
 <h1>Jobs</h1>
 <ul>
   <% @jobs.each do |job| %>
-    <li><a href="/jobs/<%=job.id%>"><%= job.name %></a></li>
+    <li>
+      <a href="/jobs/<%=job.id%>"><%= job.name %></a><br>
+    </li>
   <% end %>
 </ul>
