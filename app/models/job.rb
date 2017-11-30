@@ -3,4 +3,6 @@ class Job < ApplicationRecord
   validates :cost, numericality: {greater_than: 999.99}
   has_and_belongs_to_many :boats
   has_many :users, through: :boats
+
+  validates :origin, uniqueness: { scope: :destination, message: "Origin and destination should be different." }
 end
