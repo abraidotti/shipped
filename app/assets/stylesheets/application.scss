@@ -119,11 +119,9 @@ body {
   color:  #343a40;
   text-align: left;
   background-color: blue;
- background-image: url('../img/port.jpg');
+  background-image: url('../img/port.jpg');
+  background-size: 100vw;
 }
-
-
-
 
 [tabindex="-1"]:focus {
   outline: none !important;
