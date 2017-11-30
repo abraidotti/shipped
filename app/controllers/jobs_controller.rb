@@ -35,8 +35,11 @@ class JobsController < ApplicationController
       redirect_to job_path(@job)
     else
       begin
-        @job.update(job_params)
-        redirect_to job_path(@job)
+        if @job.update(job_params)
+          redirect_to job_path(@job)
+        else
+          redirect_to edit_job_path(@job), notice: @job.errors.full_messages.last
+        end
       rescue
         redirect_to edit_job_path(@job), notice: @job.errors.full_messages.last
       end
