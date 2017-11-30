@@ -9,8 +9,11 @@
   </head>
 
   <body>
-
-    <%= render 'shared/navigation' %>
-    <%= yield %>
+    <header>
+      <%= render 'shared/navigation' %>
+    </header>
+    <article class="">
+      <%= yield %>
+    </article>
   </body>
 </html>
