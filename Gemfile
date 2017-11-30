@@ -63,12 +63,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'paperclip'
-<<<<<<< HEAD
-=======
-
 gem 'bootstrap', '~> 4.0.0.beta2'
-
-gem 'pry'
-
-gem 'pry-byebug'
->>>>>>> e5b508d1df7735c64481f1915a6810d973f1b89f
