@@ -3655,6 +3655,16 @@ tbody.collapse.show {
   padding-bottom: 0.5rem;
 }
 
+.navbar-flashes {
+  color: lightsalmon;
+  display: inline-block;
+  margin: 0 auto;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+
 .navbar-collapse {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
