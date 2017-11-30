@@ -5,9 +5,13 @@ class Job < ApplicationRecord
   has_and_belongs_to_many :boats
   has_many :users, through: :boats
 
+<<<<<<< HEAD
   def origin_diff_from_dest
     if self.origin == self.destination
       errors.add("The destination cannot be the same as the origin.")
     end
   end
+=======
+  validates :origin, uniqueness: { scope: :destination, message: "Origin and destination should be different." }
+>>>>>>> e5b508d1df7735c64481f1915a6810d973f1b89f
 end
