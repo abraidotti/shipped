@@ -23,7 +23,7 @@ class JobsController < ApplicationController
       redirect_to root_path
     else
       #binding.pry
-      redirect_to new_job_path, notice: @job.errors.messages[:origin][0]
+      redirect_to new_job_path, notice: @job.errors.full_messages.last
     end
   end
 
@@ -34,10 +34,11 @@ class JobsController < ApplicationController
       @job.save
       redirect_to job_path(@job)
     else
-      if @job.update(job_params)
+      begin
+        @job.update(job_params)
         redirect_to job_path(@job)
-      else
-        redirect_to edit_job_path(@job), notice: "An error occured while updating the job"
+      rescue
+        redirect_to edit_job_path(@job), notice: @job.errors.full_messages.last
       end
     end
   end

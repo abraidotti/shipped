@@ -14,10 +14,11 @@ class BoatsController < ApplicationController
 
   def update
     @boat = Boat.find(params[:id])
-    if @boat.update(boat_params)
-      redirect_to boats_path
-    else
-      redirect_to edit_boat_path, notice: "An error occured while updating the boat"
+    begin
+      @boat.update(boat_params)
+      redirect_to boat_path
+    rescue
+      redirect_to edit_boat_path, notice: @boat.errors.full_messages.last
     end
   end
 
@@ -36,7 +37,7 @@ class BoatsController < ApplicationController
     if @boat.save
       redirect_to boats_path
     else
-      redirect_to new_boat_path, notice: "An error occured while creating the new boat"
+      redirect_to new_boat_path, notice: @boat.errors.full_messages.last
     end
   end
 
