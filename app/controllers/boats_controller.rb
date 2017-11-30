@@ -15,10 +15,12 @@ class BoatsController < ApplicationController
   def update
     @boat = Boat.find(params[:id])
     begin
-      @boat.update(boat_params)
-      redirect_to boat_path
+      if @boat.update(boat_params)
+        redirect_to boat_path
+      else
+        redirect_to edit_boat_path, notice: @boat.errors.full_messages.last
+      end
     rescue
-      binding.pry
       redirect_to edit_boat_path, notice: @boat.errors.full_messages.last
     end
   end
