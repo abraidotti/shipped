@@ -18,6 +18,7 @@ class BoatsController < ApplicationController
       @boat.update(boat_params)
       redirect_to boat_path
     rescue
+      binding.pry
       redirect_to edit_boat_path, notice: @boat.errors.full_messages.last
     end
   end
