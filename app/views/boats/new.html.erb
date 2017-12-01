@@ -5,7 +5,7 @@
 <%= f.text_field :name %>
 <br>
 <%= f.label "Containers: " %>
-<%= f.number_field :container_amount, in: 1..1000, step: 50 %>
+<%= f.number_field :container_amount, in: 1..1000, step: 1 %>
 <br>
 <%= f.label "Location: " %>
 <%= f.select :location, $locations %>
