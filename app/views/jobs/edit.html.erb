@@ -15,10 +15,10 @@
 <%= f.select(:destination,$locations) %>
 <br>
 <%= f.label "Cost: " %>
-<%= f.number_field :cost, in: 1000.00..100000.00, step: 100 %>
+<%= f.number_field :cost, in: 1000.00..100000.00, step: 1 %>
 <br>
 <%= f.label "Containers needed: " %>
-<%= f.number_field :containers_needed, in: 1..10000, step: 50 %>
+<%= f.number_field :containers_needed, in: 1..10000, step: 1 %>
 <br>
 <%= f.submit %>
 <% end %>
